@@ -1,0 +1,13 @@
+{
+  "itemGroup.thesiscore": "Example Mod Tab",
+  "block.thesiscore.example_block": "Example Block",
+  "item.thesiscore.example_item": "Example Item",
+
+  "thesiscore.configuration.title": "ThesisCore Configs",
+  "thesiscore.configuration.section.thesiscore.common.toml": "ThesisCore Configs",
+  "thesiscore.configuration.section.thesiscore.common.toml.title": "ThesisCore Configs",
+  "thesiscore.configuration.items": "Item List",
+  "thesiscore.configuration.logDirtBlock": "Log Dirt Block",
+  "thesiscore.configuration.magicNumberIntroduction": "Magic Number Text",
+  "thesiscore.configuration.magicNumber": "Magic Number"
+}
