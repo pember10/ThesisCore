@@ -8,5 +8,6 @@
         "signal_strength": 0.65,
         "misleading": false
     },
-    "rarity": "grimarcana:rare"
+    "rarity": "grimarcana:rare",
+    "reagent": { "item": "minecraft:ender_pearl" }
 }

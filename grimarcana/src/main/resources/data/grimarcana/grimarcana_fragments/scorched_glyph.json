@@ -8,5 +8,6 @@
         "signal_strength": 0.45,
         "misleading": false
     },
-    "rarity": "grimarcana:uncommon"
+    "rarity": "grimarcana:uncommon",
+    "reagent": { "tag": "minecraft:coals" }
 }

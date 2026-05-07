@@ -8,5 +8,6 @@
         "signal_strength": 0.20,
         "misleading": false
     },
-    "rarity": "grimarcana:common"
+    "rarity": "grimarcana:common",
+    "reagent": { "item": "minecraft:fire_charge" }
 }

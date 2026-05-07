@@ -1,0 +1,69 @@
+{
+  "_comment": "=== Items ===",
+  "item.grimarcana.fragment":        "Fragment",
+  "item.grimarcana.tablet":          "Stone Tablet",
+  "item.grimarcana.research_table":  "Research Table",
+
+  "_comment2": "=== Blocks ===",
+  "block.grimarcana.research_table": "Research Table",
+
+  "_comment3": "=== Fragment rarities ===",
+  "rarity.grimarcana.common":    "Common",
+  "rarity.grimarcana.uncommon":  "Uncommon",
+  "rarity.grimarcana.rare":      "Rare",
+  "rarity.grimarcana.epic":      "Epic",
+  "rarity.grimarcana.legendary": "Legendary",
+
+  "_comment4": "=== Fragment descriptions — Heat ===",
+  "fragment.grimarcana.ember_smear":    "A smear of ash that pulses faintly with residual heat.",
+  "fragment.grimarcana.scorched_glyph": "A rune etched into scorched stone — the marks still radiate warmth.",
+  "fragment.grimarcana.false_flame":    "An elaborate inscription, carved with deliberate strokes. Something about it seems almost too perfect.",
+
+  "_comment5": "=== Fragment descriptions — Stability ===",
+  "fragment.grimarcana.still_shard":  "A chip of stone that sits unnaturally still, as if nothing could move it.",
+  "fragment.grimarcana.binding_rune": "A near-complete rune inscribed deep into obsidian. It feels anchoring just to hold.",
+
+  "_comment6": "=== Fragment descriptions — Chaos ===",
+  "fragment.grimarcana.shifting_scrap": "A scrap of paper covered in ink that never quite settles.",
+  "fragment.grimarcana.fractured_lens": "A cracked lens that bends light in ways it shouldn't.",
+  "fragment.grimarcana.hollow_echo":    "A hollow fragment that seems to absorb sound nearby. Strangely, it also feels slightly warm.",
+
+  "_comment7": "=== Fragment descriptions — Life ===",
+  "fragment.grimarcana.dormant_seed":       "A dried seed that hums faintly, as though waiting for the right moment.",
+  "fragment.grimarcana.preserved_blossom":  "An ancient flower, perfectly preserved. The inscription beneath the petals is almost fully intact.",
+
+  "_comment8": "=== Fragment descriptions — Decay ===",
+  "fragment.grimarcana.worn_bone":       "A fragment of bone with worn runes. Time has erased most of the inscription.",
+  "fragment.grimarcana.crumbling_tablet":"A crumbling stone tablet. The inscription is largely intact but the medium is failing.",
+
+  "_comment9": "=== Fragment descriptions — Void ===",
+  "fragment.grimarcana.void_crystal":      "A crystallised absence. It is difficult to describe what you are holding.",
+  "fragment.grimarcana.hollow_impression": "An impression of something that should be there but isn't. The edges feel cold.",
+
+  "_comment10": "=== Fragment descriptions — Spirit ===",
+  "fragment.grimarcana.intentioned_feather": "A feather that seems to point somewhere, as if it still carries direction.",
+  "fragment.grimarcana.spirit_medallion":    "A carved medallion whose inscription is almost complete. It feels purposeful.",
+
+  "_comment11": "=== Signal strength hints ===",
+  "fragment.grimarcana.signal.faint":    "The inscription is heavily fragmented.",
+  "fragment.grimarcana.signal.partial":  "The inscription is partially legible.",
+  "fragment.grimarcana.signal.clear":    "The inscription is mostly intact.",
+  "fragment.grimarcana.signal.strong":   "The inscription is nearly complete.",
+  "fragment.grimarcana.signal.complete": "The inscription is fully intact.",
+
+  "_comment12": "=== Research hint tooltips ===",
+  "fragment.grimarcana.hint.genuine":    "The inscription feels genuine.",
+  "fragment.grimarcana.hint.suspicious": "Something about this fragment feels wrong.",
+
+  "_comment13": "=== Research Table UI ===",
+  "container.grimarcana.research_table": "Research Table",
+  "button.grimarcana.research":          "Research",
+
+  "_comment14": "=== Research messages ===",
+  "message.grimarcana.research_complete":  "You commit the fragment to memory.",
+  "message.grimarcana.already_researched": "You have already studied this fragment.",
+  "message.grimarcana.wrong_reagent":      "The reagent does not resonate with this fragment.",
+
+  "_comment15": "=== Fragment use action bar ===",
+  "fragment.grimarcana.studied": "You study the fragment carefully."
+}

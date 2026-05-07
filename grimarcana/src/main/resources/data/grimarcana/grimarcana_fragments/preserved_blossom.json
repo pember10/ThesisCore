@@ -8,5 +8,6 @@
         "signal_strength": 0.92,
         "misleading": false
     },
-    "rarity": "grimarcana:legendary"
+    "rarity": "grimarcana:legendary",
+    "reagent": { "tag": "minecraft:villager_plantable_seeds" }
 }

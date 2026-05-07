@@ -8,5 +8,6 @@
         "signal_strength": 0.55,
         "misleading": false
     },
-    "rarity": "grimarcana:rare"
+    "rarity": "grimarcana:rare",
+    "reagent": { "item": "minecraft:bone" }
 }

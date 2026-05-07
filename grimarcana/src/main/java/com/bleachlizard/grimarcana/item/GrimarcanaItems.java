@@ -1,5 +1,7 @@
 package com.bleachlizard.grimarcana.item;
 
+import com.bleachlizard.grimarcana.block.GrimarcanaBlocks;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -19,23 +21,33 @@ public class GrimarcanaItems {
             DeferredRegister.createItems("grimarcana");
 
     // -------------------------------------------------------------------------
-    // Fragment items — one per rarity tier
+    // Fragment item — single item for all rarities
     // -------------------------------------------------------------------------
 
-    public static final Supplier<FragmentItem> FRAGMENT_COMMON = ITEMS.register("fragment_common",
+    /**
+     * The single item used for every fragment, regardless of rarity.
+     * Rarity-specific display (name colour, display name prefix) is resolved at runtime
+     * from the {@link FragmentComponents#FRAGMENT_ID} component via the open
+     * {@link com.bleachlizard.thesiscore.registry.ThesisCoreRegistries#FRAGMENT_RARITIES}
+     * registry — so data-pack-defined rarities work automatically with no additional items.
+     */
+    public static final Supplier<FragmentItem> FRAGMENT = ITEMS.register("fragment",
             () -> new FragmentItem(new Item.Properties().stacksTo(16)));
 
-    public static final Supplier<FragmentItem> FRAGMENT_UNCOMMON = ITEMS.register("fragment_uncommon",
-            () -> new FragmentItem(new Item.Properties().stacksTo(16)));
+    // -------------------------------------------------------------------------
+    // Research reagent items
+    // -------------------------------------------------------------------------
 
-    public static final Supplier<FragmentItem> FRAGMENT_RARE = ITEMS.register("fragment_rare",
-            () -> new FragmentItem(new Item.Properties().stacksTo(8)));
+    /**
+     * A plain stone tablet — used as the research reagent for the Crumbling Tablet fragment.
+     * Thematically fitting: the researcher sacrifices a blank tablet to decode an ancient one.
+     */
+    public static final Supplier<Item> TABLET = ITEMS.register("tablet",
+            () -> new Item(new Item.Properties().stacksTo(16)));
 
-    public static final Supplier<FragmentItem> FRAGMENT_EPIC = ITEMS.register("fragment_epic",
-            () -> new FragmentItem(new Item.Properties().stacksTo(4)));
-
-    public static final Supplier<FragmentItem> FRAGMENT_LEGENDARY = ITEMS.register("fragment_legendary",
-            () -> new FragmentItem(new Item.Properties().stacksTo(1)));
+    /** Placeable Research Table item — gives the player the Research Table block. */
+    public static final Supplier<BlockItem> RESEARCH_TABLE = ITEMS.register("research_table",
+            () -> new BlockItem(GrimarcanaBlocks.RESEARCH_TABLE.get(), new Item.Properties()));
 
     private GrimarcanaItems() {}
 }

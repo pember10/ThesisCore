@@ -8,5 +8,6 @@
         "signal_strength": 0.80,
         "misleading": false
     },
-    "rarity": "grimarcana:epic"
+    "rarity": "grimarcana:epic",
+    "reagent": { "item": "minecraft:feather" }
 }

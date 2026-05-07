@@ -3,10 +3,14 @@ package com.bleachlizard.thesiscore.registry;
 import com.bleachlizard.thesiscore.ThesisCore;
 import com.bleachlizard.thesiscore.instability.PlayerInstability;
 import com.bleachlizard.thesiscore.knowledge.PlayerKnowledgeState;
+import com.mojang.serialization.Codec;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.function.Supplier;
 
 /**
@@ -44,6 +48,18 @@ public class ThesisCoreAttachments {
             ATTACHMENT_TYPES.register("player_instability", () ->
                     AttachmentType.builder(PlayerInstability::new)
                             .serialize(PlayerInstability.CODEC)
+                            .build());
+
+    /**
+     * Stores the set of fragment IDs the player has permanently researched at the Research Table.
+     * Once a fragment is researched, the player gains a vague hint about its reliability.
+     * Persists across sessions.
+     */
+    public static final Supplier<AttachmentType<Set<ResourceLocation>>> RESEARCHED_FRAGMENTS =
+            ATTACHMENT_TYPES.register("researched_fragments", () ->
+                    AttachmentType.<Set<ResourceLocation>>builder(() -> new HashSet<>())
+                            .serialize(ResourceLocation.CODEC.listOf()
+                                    .xmap(HashSet::new, list -> list.stream().toList()))
                             .build());
 
     private ThesisCoreAttachments() {}

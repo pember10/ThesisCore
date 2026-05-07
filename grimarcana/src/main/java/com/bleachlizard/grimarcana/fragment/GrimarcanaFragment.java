@@ -7,27 +7,27 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.Ingredient;
 
 /**
  * A Grimarcana-specific fragment of knowledge, wrapping ThesisCore's {@link KnowledgeFragment}
- * with a rarity tier that controls its signal strength range and display properties.
+ * with a rarity tier and a research reagent requirement.
  *
- * <p>The rarity is a {@link ResourceKey} pointing into ThesisCore's
- * {@link com.bleachlizard.thesiscore.registry.ThesisCoreRegistries#FRAGMENT_RARITIES} registry,
- * so any mod or data pack can define additional tiers.
+ * <p>The {@code reagent} field is a NeoForge {@link Ingredient} — it can match a specific item,
+ * an item tag, or a list of alternatives, and is defined per-fragment in JSON. This allows
+ * thematic reagents without requiring mod-specific items for every fragment.
  *
  * <p>Example JSON (at {@code data/grimarcana/grimarcana_fragments/<name>.json}):
  * <pre>
  * {
- *   "fragment": {
- *     "id": "grimarcana:ember_trace",
- *     "description_key": "fragment.grimarcana.ember_trace",
- *     "related_symbols": ["grimarcana:heat"],
- *     "signal_strength": 0.45,
- *     "misleading": false
- *   },
- *   "rarity": "grimarcana:uncommon"
+ *   "fragment": { ... },
+ *   "rarity": "grimarcana:uncommon",
+ *   "reagent": { "item": "minecraft:bone" }
  * }
+ * </pre>
+ * Or with a tag:
+ * <pre>
+ *   "reagent": { "tag": "minecraft:seeds" }
  * </pre>
  */
 public class GrimarcanaFragment {
@@ -43,15 +43,20 @@ public class GrimarcanaFragment {
                                     ResourceKey::location
                             )
                             .fieldOf("rarity")
-                            .forGetter(GrimarcanaFragment::getRarityKey)
+                            .forGetter(GrimarcanaFragment::getRarityKey),
+                    Ingredient.CODEC
+                            .fieldOf("reagent")
+                            .forGetter(GrimarcanaFragment::getReagent)
             ).apply(instance, GrimarcanaFragment::new));
 
     private final KnowledgeFragment fragment;
     private final ResourceKey<FragmentRarity> rarityKey;
+    private final Ingredient reagent;
 
-    public GrimarcanaFragment(KnowledgeFragment fragment, ResourceKey<FragmentRarity> rarityKey) {
+    public GrimarcanaFragment(KnowledgeFragment fragment, ResourceKey<FragmentRarity> rarityKey, Ingredient reagent) {
         this.fragment = fragment;
         this.rarityKey = rarityKey;
+        this.reagent = reagent;
     }
 
     public KnowledgeFragment getFragment() {
@@ -60,6 +65,10 @@ public class GrimarcanaFragment {
 
     public ResourceKey<FragmentRarity> getRarityKey() {
         return rarityKey;
+    }
+
+    public Ingredient getReagent() {
+        return reagent;
     }
 
     /** Convenience: the unique ID of the underlying fragment. */

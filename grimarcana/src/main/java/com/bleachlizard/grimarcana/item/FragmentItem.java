@@ -6,6 +6,7 @@ import com.bleachlizard.thesiscore.knowledge.FragmentRarity;
 import com.bleachlizard.thesiscore.knowledge.PlayerKnowledgeState;
 import com.bleachlizard.thesiscore.registry.ThesisCoreAttachments;
 import com.bleachlizard.thesiscore.registry.ThesisCoreRegistries;
+import com.bleachlizard.thesiscore.symbol.Symbol;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -25,9 +26,11 @@ import java.util.Optional;
 /**
  * The Minecraft item representation of a {@link GrimarcanaFragment}.
  *
- * <p>One item class is used for all fragments of a given rarity tier. The specific
+ * <p>A single item class is used for all fragments across all rarities. The specific
  * fragment definition is stored in the {@link FragmentComponents#FRAGMENT_ID} data
  * component on the stack, which is looked up at runtime from the fragment registry.
+ * Rarity colour and display name are resolved dynamically, so data-pack-defined
+ * rarity tiers work without registering additional items.
  *
  * <p>Using the item applies evidence from the fragment to the player's
  * {@link PlayerKnowledgeState}. The signal strength is taken from the fragment definition.
@@ -66,6 +69,25 @@ public class FragmentItem extends Item {
         float signal = fragment.get().getFragment().getSignalStrength();
         lines.add(Component.translatable(signalHintKey(signal))
                 .withStyle(ChatFormatting.DARK_GRAY));
+
+        // Research hint — only shown on the client after the player has researched this fragment.
+        // appendHoverText is always called client-side, so Minecraft.getInstance() is safe here.
+        if (context.level() != null && context.level().isClientSide()) {
+            ResourceLocation fragmentId = stack.get(FragmentComponents.FRAGMENT_ID.get());
+            if (fragmentId != null) {
+                var mc = net.minecraft.client.Minecraft.getInstance();
+                if (mc.player != null
+                        && mc.player.getData(ThesisCoreAttachments.RESEARCHED_FRAGMENTS).contains(fragmentId)) {
+                    if (fragment.get().isMisleading()) {
+                        lines.add(Component.translatable("fragment.grimarcana.hint.suspicious")
+                                .withStyle(ChatFormatting.DARK_RED));
+                    } else {
+                        lines.add(Component.translatable("fragment.grimarcana.hint.genuine")
+                                .withStyle(ChatFormatting.GREEN));
+                    }
+                }
+            }
+        }
     }
 
     @Override
@@ -79,16 +101,12 @@ public class FragmentItem extends Item {
         var knowledgeFragment = fragment.get().getFragment();
         PlayerKnowledgeState knowledge = player.getData(ThesisCoreAttachments.PLAYER_KNOWLEDGE);
 
-        // Apply evidence for each related symbol
+        // Apply evidence for each related symbol.
+        // Look up the symbol's actual tags from the registry so the belief system
+        // receives real conceptual information, not an empty set.
         for (var symbolId : knowledgeFragment.getRelatedSymbols()) {
-            knowledge.applyEvidence(
-                    symbolId,
-                    // We only pass signal-strength here; the belief system handles the rest.
-                    // The tags come from the symbol registry, not the fragment — the player
-                    // doesn't get tag information directly, just confidence.
-                    java.util.Set.of(),
-                    knowledgeFragment.getSignalStrength()
-            );
+            java.util.Set<String> tags = resolveSymbolTags(symbolId);
+            knowledge.applyEvidence(symbolId, tags, knowledgeFragment.getSignalStrength());
         }
 
         player.displayClientMessage(
@@ -118,6 +136,17 @@ public class FragmentItem extends Item {
         var registry = BuiltInRegistries.REGISTRY.get(ThesisCoreRegistries.FRAGMENT_RARITIES.location());
         if (registry == null) return null;
         return ((net.minecraft.core.Registry<FragmentRarity>) registry).getOptional(rarityKey.location()).orElse(null);
+    }
+
+    /** Looks up the symbol's tags from the SYMBOLS registry. Returns empty set if not found. */
+    @SuppressWarnings("unchecked")
+    private static java.util.Set<String> resolveSymbolTags(ResourceLocation symbolId) {
+        var registry = BuiltInRegistries.REGISTRY.get(ThesisCoreRegistries.SYMBOLS.location());
+        if (registry == null) return java.util.Set.of();
+        return ((net.minecraft.core.Registry<Symbol>) registry)
+                .getOptional(symbolId)
+                .map(Symbol::getTags)
+                .orElse(java.util.Set.of());
     }
 
     private static String signalHintKey(float signal) {

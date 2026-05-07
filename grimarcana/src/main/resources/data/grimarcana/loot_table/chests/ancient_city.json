@@ -1,0 +1,49 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": { "type": "minecraft:uniform", "min": 0, "max": 1 },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "grimarcana:fragment",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "grimarcana:fragment_id": "grimarcana:binding_rune"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "grimarcana:fragment",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "grimarcana:fragment_id": "grimarcana:crumbling_tablet"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "grimarcana:fragment",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "grimarcana:fragment_id": "grimarcana:spirit_medallion"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

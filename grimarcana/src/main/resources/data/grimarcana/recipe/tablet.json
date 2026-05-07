@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "SPS",
+    " P "
+  ],
+  "key": {
+    "S": { "item": "minecraft:stone" },
+    "P": { "item": "minecraft:paper" }
+  },
+  "result": {
+    "id": "grimarcana:tablet",
+    "count": 4
+  }
+}

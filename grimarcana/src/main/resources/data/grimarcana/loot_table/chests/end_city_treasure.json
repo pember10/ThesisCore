@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": { "type": "minecraft:uniform", "min": 0, "max": 1 },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "grimarcana:fragment",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "grimarcana:fragment_id": "grimarcana:void_crystal"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "grimarcana:fragment",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "grimarcana:fragment_id": "grimarcana:preserved_blossom"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

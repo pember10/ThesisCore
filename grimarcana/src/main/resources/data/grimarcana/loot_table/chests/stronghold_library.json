@@ -1,0 +1,62 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": { "type": "minecraft:uniform", "min": 0, "max": 1 },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "grimarcana:fragment",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "grimarcana:fragment_id": "grimarcana:false_flame"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "grimarcana:fragment",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "grimarcana:fragment_id": "grimarcana:fractured_lens"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "grimarcana:fragment",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "grimarcana:fragment_id": "grimarcana:worn_bone"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "grimarcana:fragment",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "grimarcana:fragment_id": "grimarcana:hollow_impression"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
