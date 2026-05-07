@@ -1,0 +1,12 @@
+{
+    "fragment": {
+        "id": "grimarcana:dormant_seed",
+        "description_key": "fragment.grimarcana.dormant_seed",
+        "related_symbols": [
+            "grimarcana:life"
+        ],
+        "signal_strength": 0.20,
+        "misleading": false
+    },
+    "rarity": "grimarcana:common"
+}

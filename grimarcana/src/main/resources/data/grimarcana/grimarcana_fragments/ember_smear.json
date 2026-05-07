@@ -1,0 +1,12 @@
+{
+    "fragment": {
+        "id": "grimarcana:ember_smear",
+        "description_key": "fragment.grimarcana.ember_smear",
+        "related_symbols": [
+            "grimarcana:heat"
+        ],
+        "signal_strength": 0.20,
+        "misleading": false
+    },
+    "rarity": "grimarcana:common"
+}

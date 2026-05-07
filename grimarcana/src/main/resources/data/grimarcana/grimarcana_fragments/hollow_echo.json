@@ -1,0 +1,12 @@
+{
+    "fragment": {
+        "id": "grimarcana:hollow_echo",
+        "description_key": "fragment.grimarcana.hollow_echo",
+        "related_symbols": [
+            "grimarcana:chaos"
+        ],
+        "signal_strength": 0.35,
+        "misleading": true
+    },
+    "rarity": "grimarcana:uncommon"
+}

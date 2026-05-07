@@ -1,5 +1,10 @@
 package com.bleachlizard.grimarcana;
 
+import com.bleachlizard.grimarcana.fragment.GrimarcanaFragments;
+import com.bleachlizard.grimarcana.fragment.GrimarcanaRarities;
+import com.bleachlizard.grimarcana.item.FragmentComponents;
+import com.bleachlizard.grimarcana.item.GrimarcanaItems;
+import com.bleachlizard.grimarcana.symbol.GrimarcanaSymbols;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -12,6 +17,10 @@ public class Grimarcana {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public Grimarcana(IEventBus modEventBus, ModContainer modContainer) {
-        // Grimarcana-specific registries and systems will be registered here.
+        GrimarcanaSymbols.SYMBOLS.register(modEventBus);
+        GrimarcanaRarities.RARITIES.register(modEventBus);
+        GrimarcanaFragments.FRAGMENTS.register(modEventBus);
+        FragmentComponents.COMPONENTS.register(modEventBus);
+        GrimarcanaItems.ITEMS.register(modEventBus);
     }
 }

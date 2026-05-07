@@ -1,0 +1,12 @@
+{
+    "fragment": {
+        "id": "grimarcana:spirit_medallion",
+        "description_key": "fragment.grimarcana.spirit_medallion",
+        "related_symbols": [
+            "grimarcana:spirit"
+        ],
+        "signal_strength": 0.80,
+        "misleading": false
+    },
+    "rarity": "grimarcana:epic"
+}

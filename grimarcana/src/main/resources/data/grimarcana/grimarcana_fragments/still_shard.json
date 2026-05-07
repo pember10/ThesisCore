@@ -1,0 +1,12 @@
+{
+    "fragment": {
+        "id": "grimarcana:still_shard",
+        "description_key": "fragment.grimarcana.still_shard",
+        "related_symbols": [
+            "grimarcana:stability"
+        ],
+        "signal_strength": 0.25,
+        "misleading": false
+    },
+    "rarity": "grimarcana:common"
+}

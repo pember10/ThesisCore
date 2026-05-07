@@ -1,0 +1,12 @@
+{
+    "fragment": {
+        "id": "grimarcana:worn_bone",
+        "description_key": "fragment.grimarcana.worn_bone",
+        "related_symbols": [
+            "grimarcana:decay"
+        ],
+        "signal_strength": 0.55,
+        "misleading": false
+    },
+    "rarity": "grimarcana:rare"
+}

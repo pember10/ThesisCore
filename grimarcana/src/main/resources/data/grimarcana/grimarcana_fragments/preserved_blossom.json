@@ -1,0 +1,12 @@
+{
+    "fragment": {
+        "id": "grimarcana:preserved_blossom",
+        "description_key": "fragment.grimarcana.preserved_blossom",
+        "related_symbols": [
+            "grimarcana:life"
+        ],
+        "signal_strength": 0.92,
+        "misleading": false
+    },
+    "rarity": "grimarcana:legendary"
+}

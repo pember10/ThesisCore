@@ -1,0 +1,12 @@
+{
+    "fragment": {
+        "id": "grimarcana:void_crystal",
+        "description_key": "fragment.grimarcana.void_crystal",
+        "related_symbols": [
+            "grimarcana:void"
+        ],
+        "signal_strength": 0.90,
+        "misleading": false
+    },
+    "rarity": "grimarcana:legendary"
+}

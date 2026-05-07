@@ -1,0 +1,12 @@
+{
+    "fragment": {
+        "id": "grimarcana:binding_rune",
+        "description_key": "fragment.grimarcana.binding_rune",
+        "related_symbols": [
+            "grimarcana:stability"
+        ],
+        "signal_strength": 0.80,
+        "misleading": false
+    },
+    "rarity": "grimarcana:epic"
+}

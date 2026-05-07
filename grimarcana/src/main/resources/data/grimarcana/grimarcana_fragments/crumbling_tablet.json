@@ -1,0 +1,12 @@
+{
+    "fragment": {
+        "id": "grimarcana:crumbling_tablet",
+        "description_key": "fragment.grimarcana.crumbling_tablet",
+        "related_symbols": [
+            "grimarcana:decay"
+        ],
+        "signal_strength": 0.75,
+        "misleading": false
+    },
+    "rarity": "grimarcana:epic"
+}

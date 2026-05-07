@@ -1,7 +1,10 @@
 package com.bleachlizard.thesiscore.knowledge;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.resources.ResourceLocation;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,6 +21,26 @@ import java.util.Set;
  * can hold and trade) is a separate layer built on top of this data object.
  */
 public class KnowledgeFragment {
+
+    public static final Codec<KnowledgeFragment> CODEC = RecordCodecBuilder.create(instance ->
+            instance.group(
+                    ResourceLocation.CODEC
+                            .fieldOf("id")
+                            .forGetter(KnowledgeFragment::getId),
+                    Codec.STRING
+                            .fieldOf("description_key")
+                            .forGetter(KnowledgeFragment::getDescriptionKey),
+                    ResourceLocation.CODEC.listOf()
+                            .<Set<ResourceLocation>>xmap(list -> new HashSet<>(list), set -> new ArrayList<>(set))
+                            .fieldOf("related_symbols")
+                            .forGetter(KnowledgeFragment::getRelatedSymbols),
+                    Codec.FLOAT
+                            .fieldOf("signal_strength")
+                            .forGetter(KnowledgeFragment::getSignalStrength),
+                    Codec.BOOL
+                            .fieldOf("misleading")
+                            .forGetter(KnowledgeFragment::isMisleading)
+            ).apply(instance, KnowledgeFragment::new));
 
     private final ResourceLocation id;
     /** Translation key for the vague, player-facing description of this fragment. */

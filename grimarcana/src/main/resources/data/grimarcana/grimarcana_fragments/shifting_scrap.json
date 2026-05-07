@@ -1,0 +1,12 @@
+{
+    "fragment": {
+        "id": "grimarcana:shifting_scrap",
+        "description_key": "fragment.grimarcana.shifting_scrap",
+        "related_symbols": [
+            "grimarcana:chaos"
+        ],
+        "signal_strength": 0.40,
+        "misleading": false
+    },
+    "rarity": "grimarcana:uncommon"
+}

@@ -1,0 +1,12 @@
+{
+    "fragment": {
+        "id": "grimarcana:intentioned_feather",
+        "description_key": "fragment.grimarcana.intentioned_feather",
+        "related_symbols": [
+            "grimarcana:spirit"
+        ],
+        "signal_strength": 0.40,
+        "misleading": false
+    },
+    "rarity": "grimarcana:uncommon"
+}

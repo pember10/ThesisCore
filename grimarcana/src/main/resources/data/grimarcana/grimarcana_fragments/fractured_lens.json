@@ -1,0 +1,12 @@
+{
+    "fragment": {
+        "id": "grimarcana:fractured_lens",
+        "description_key": "fragment.grimarcana.fractured_lens",
+        "related_symbols": [
+            "grimarcana:chaos"
+        ],
+        "signal_strength": 0.65,
+        "misleading": false
+    },
+    "rarity": "grimarcana:rare"
+}

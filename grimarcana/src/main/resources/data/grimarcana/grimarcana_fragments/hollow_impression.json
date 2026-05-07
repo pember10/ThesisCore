@@ -1,0 +1,12 @@
+{
+    "fragment": {
+        "id": "grimarcana:hollow_impression",
+        "description_key": "fragment.grimarcana.hollow_impression",
+        "related_symbols": [
+            "grimarcana:spirit"
+        ],
+        "signal_strength": 0.60,
+        "misleading": true
+    },
+    "rarity": "grimarcana:rare"
+}

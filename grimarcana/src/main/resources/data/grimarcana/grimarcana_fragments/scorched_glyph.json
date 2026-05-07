@@ -1,0 +1,12 @@
+{
+    "fragment": {
+        "id": "grimarcana:scorched_glyph",
+        "description_key": "fragment.grimarcana.scorched_glyph",
+        "related_symbols": [
+            "grimarcana:heat"
+        ],
+        "signal_strength": 0.45,
+        "misleading": false
+    },
+    "rarity": "grimarcana:uncommon"
+}
